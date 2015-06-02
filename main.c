@@ -1,3 +1,5 @@
+/* Luis Enrique Ramirez, Geoffrey Tucker, Allen Thich, Miles Bonner  */
+
 #include "csapp.h"
 
 #define PROXY_LOG "proxy.log"
@@ -80,7 +82,6 @@ void process_request(connection* conn) {
     while (1) {
         if ((n = Rio_readlineb_w(&rio, buf, MAXLINE)) <= 0) {
             printf("process_request: client issued a bad request (1).\n");
-            printf("here's buff: %s\n", buf);
             close(conn->connfd);
             free(request);
             return;
